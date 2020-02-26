@@ -1,0 +1,16 @@
+{
+  "name": "10th_ap_postgresSql_with_knex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.20.10",
+    "pg": "^7.18.2"
+  }
+}
