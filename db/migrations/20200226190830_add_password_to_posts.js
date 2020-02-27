@@ -1,13 +1,13 @@
 
 exports.up = function(knex) { 
-    return knex.schema.table("post", (t)=>{
+    return knex.schema.table("users", (t)=>{
         t.string("password")
     })
   
 };
 
 exports.down = function(knex) { 
-  return knex.schema.table('posts', (a)=> {
+  return knex.schema.table('users', (a)=> {
       a.dropColumn("password");
   });
 };
