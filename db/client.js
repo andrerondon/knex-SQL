@@ -1,5 +1,5 @@
 const knex = require("knex")
-const knexfile = require("../knexfile")
+const knexfile = require("../knexfile.js")
 const client = knex(knexfile.development)
 
-module.export = client
+module.exports = client
