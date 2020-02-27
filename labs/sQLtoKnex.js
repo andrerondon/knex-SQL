@@ -7,7 +7,37 @@ const knex = require('../db/client')
 // 3) INSERT INTO posts ('title') VALUES ('🤔');
 // 4) insert into `posts` (`content`, `title`) values ('🍎', '🍌'), ('✏️', '📄'), ('🖱, '⌨️');
 
-knex.select('*').from('posts').limit(5).offset(10)
+
+knex.insert({
+  title: "New Post",
+  content: '🍎, 🍌, ✏️, 📄, 🖱, ⌨️'
+}).into("posts") 
+.returning('*')
+.then((a)=>{
+  console.log(a);
+  knex.destroy();
+})
+
+.catch((e)=>{
+console.log(e);  
+knex.destroy();
+})
+
+
+knex('posts').insert({title: '🤔'})
+.returning("*")
+.then(newPost =>{
+  console.log(newPost);
+  knex.destroy();
+})
+.catch(e =>{
+  console.log(e);
+  knex.destroy();
+})
+
+
+
+knex.select('*').from('posts').limit(5).offset(0)
 .returning("*")
 .then(changeCount =>{
   console.log(changeCount);
@@ -30,8 +60,4 @@ knex('posts').where({id:1})
   console.log(e);
   knex.destroy();
 })
-
-
-
-
 
